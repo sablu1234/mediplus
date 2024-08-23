@@ -227,6 +227,62 @@
 			<div class="container">
 				<div class="schedule-inner">
 					<div class="row">
+
+					<?php
+					// $age=2;
+					// if($age>=18){
+					// 	echo "you are baby";
+					// }
+					// else{
+					// 	echo "you are voter";
+					// }
+
+					// $name=;
+					// $cell=;
+					// $email=;
+
+					// $person_info=array(
+					// 	'key'=>'value',
+					// 	'hadi'=>array(
+					// 		'status'=>'good',
+					// 	)
+					// );
+					// echo $person_info['hadi']['status'];
+					// $info=array('d','5445','hadi');
+					// echo count($info);
+					// echo $info['0'];
+
+					// $person_data=array(
+					// 	'key'=>"value",
+					// 	'name'=>'hadi jaman',
+					// 	'hasan'=>array(
+					// 		'status'=>'std',
+					// 		'area'=>'natore',
+					// 	)
+					// );
+					//  var_dump($person_data);
+					// echo $person_data['hasan']['area'];
+					// $slno=0;
+					// for($taka=0;$taka<10000;$taka+=1000){
+					// 	$slno++;
+					// 	echo $slno.' no: '.$taka.'<br>';
+					// }
+				// $taka=0;
+				// 	while($taka<10){
+				// 		$taka++;
+				// 		echo $taka;
+				// 	}
+
+				$the_client=new wp_query(
+					array(
+						'post_type'=>array('student'),
+					)
+				);
+
+
+					if($the_client->have_posts()):
+						while($the_client->have_posts()):$the_client->the_post();
+						?>
 						<div class="col-lg-4 col-md-6 col-12 ">
 							<!-- single-schedule -->
 							<div class="single-schedule first">
@@ -235,50 +291,32 @@
 										<i class="fa fa-ambulance"></i>
 									</div>
 									<div class="single-content">
-										<span>Lorem Amet</span>
-										<h4>Emergency Cases</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+										<?php 
+										if(has_post_thumbnail()){
+											the_post_thumbnail( 'thumbnail');
+										}
+										else{
+											?>
+											<img src="<?php echo get_parent_theme_file_uri( 'assets/img/pf4.jpg' ); ?>" alt="#">
+											<?php
+										}
+										?>
+										<h4><?php the_title()?></h4>
+										<p><?php the_content()?></p>
+										<a href="<?php the_permalink();?>">LEARN MORE</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 col-12">
-							<!-- single-schedule -->
-							<div class="single-schedule middle">
-								<div class="inner">
-									<div class="icon">
-										<i class="icofont-prescription"></i>
-									</div>
-									<div class="single-content">
-										<span>Fusce Porttitor</span>
-										<h4>Doctors Timetable</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-12 col-12">
-							<!-- single-schedule -->
-							<div class="single-schedule last">
-								<div class="inner">
-									<div class="icon">
-										<i class="icofont-ui-clock"></i>
-									</div>
-									<div class="single-content">
-										<span>Donec luctus</span>
-										<h4>Opening Hours</h4>
-										<ul class="time-sidual">
-											<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-											<li class="day">Saturday <span>9.00-18.30</span></li>
-											<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-										</ul>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
+						<?php
+					endwhile;
+				else :
+					echo "post nai"; 
+				endif;
+					
+					?>
+						
+						
 					</div>
 				</div>
 			</div>
