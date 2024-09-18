@@ -1,0 +1,63 @@
+add_action('after_setup_theme','wplearntheme');
+add_theme_support('post-thumbnails', array('post','page','service'));
+add_action( 'wp_enqueue_scripts','mywpscript');
+wp_enqueue_style('unique_id',get_stylesheet_uri());
+wp_enqueue_style('main_css',
+                get_parent_theme_file_uri('assets/css/main.css'),
+                array(),
+                wp_get_theme()->get('version'),
+                'all'
+            
+            );
+
+
+            <?php wp_head();?>
+            wp_get_theme()->get('Version')
+            echo get_template_directory_uri()
+
+            //inline css use 
+            wp_add_inline_style(
+                'main_css',
+                'body{background:red}'
+            );
+
+            //footer ar method pabar jonno
+            <?php echo wp_footer();?>
+
+            //js file connect
+            wp_enqueue_script(
+                "main",
+                get_template_directory_uri()."/assets/js/main.js",
+                array(),
+                wp_get_theme()->get('Version'),
+                true
+                
+            );
+
+            //amra kisu add korte aitau use korte pari
+            prothome 2ta wp prefer kore path add korte
+            get_theme_file_uri()
+            get_parent_theme_file_uri
+
+            get_template_directory_uri()
+            esc_url()
+            <?php get_sidebar();?>
+            <?php get_footer();?>
+            <?php get_sidebar();?>
+            <?php get_header('top');?>
+            <?php get_footer('one');?>
+            <?php get_template_part('pages/custompage');?>
+            <?php get_template_part('template-parts/content','video');?>
+            get_permalink()
+            the_post()
+            the_title()
+            the_content()
+            the_category();
+            the_author();
+            the_excerpt();
+            the_id();
+            the_time();
+            the_meta();
+            load_theme_textdomain('sablu_hasan',get_template_directory()."/languages");
+            
+            
