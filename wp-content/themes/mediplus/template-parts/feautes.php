@@ -10,39 +10,35 @@
 					</div>
 				</div>
 				<div class="row">
+					<?php 
+					$slider = array(
+						'post_type'      => 'mywonlider',  // Replace with your custom post type
+					);
+					
+					$the_slider = new WP_Query($slider);
+					if ( $the_slider->have_posts() ) :
+						while ( $the_slider->have_posts() ) : $the_slider->the_post();
+					$icon=get_post_meta($post->ID,'unique_key',true);
+					?>
 					<div class="col-lg-4 col-12">
 						<!-- Start Single features -->
 						<div class="single-features">
 							<div class="signle-icon">
-								<i class="icofont icofont-ambulance-cross"></i>
+								<i class="<?php echo $icon;?>"></i>
 							</div>
-							<h3>Emergency Help</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+							<h3><?php echo the_title();?></h3>
+							<p><?php the_excerpt();?></>
 						</div>
 						<!-- End Single features -->
 					</div>
-					<div class="col-lg-4 col-12">
-						<!-- Start Single features -->
-						<div class="single-features">
-							<div class="signle-icon">
-								<i class="icofont icofont-medical-sign-alt"></i>
-							</div>
-							<h3>Enriched Pharmecy</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
-						</div>
-						<!-- End Single features -->
-					</div>
-					<div class="col-lg-4 col-12">
-						<!-- Start Single features -->
-						<div class="single-features last">
-							<div class="signle-icon">
-								<i class="icofont icofont-stethoscope"></i>
-							</div>
-							<h3>Medical Treatment</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
-						</div>
-						<!-- End Single features -->
-					</div>
+					<?php 
+					    endwhile;
+						else :
+							_e( 'Sorry, no posts were found.', 'textdomain' );
+						endif;
+					
+					?>
+					
 				</div>
 			</div>
 		</section>

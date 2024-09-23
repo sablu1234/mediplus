@@ -92,3 +92,38 @@ the_post_thumbnail( 'medium' );        // Medium resolution (300 x 300 max heigh
 the_post_thumbnail( 'medium_large' );  // Medium Large (added in WP 4.4) resolution (768 x 0 infinite height)
 the_post_thumbnail( 'large' );         // Large resolution (1024 x 1024 max height 1024px)
 the_post_thumbnail( 'full' );          // Full resolution (original size uploaded)
+
+
+
+
+$myallcat=get_categories(array(
+										'orderby'=>'name',
+										'order'=>'dsc',
+									));
+									foreach($myallcat as $singlecat){
+										
+								
+									?>
+									<li><a href="#"><?php echo $singlecat->name;?></a></li>
+									<?php 
+										}
+									
+									?>
+
+
+
+
+
+
+<?php echo get_avatar(get_the_author_meta('ID'), 64);?>
+
+
+
+'supports'=>array('title','editor','thumbnail','author','comments','excerpt'),
+
+
+
+$icon=get_post_meta($post->ID,'unique_key',true);
+
+
+

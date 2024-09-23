@@ -177,20 +177,15 @@
 							<div class="single-widget category">
 								<h3 class="title">Blog Categories</h3>
 								<ul class="categor-list">
+									<?php $category_list=get_categories();
+                                    
+                                    foreach($category_list as $single_car){
+
+                                   
+                                    ?>
+									<li><a href="<?php echo esc_url(get_category_link($single_car->term_id));?>"><?php echo esc_html($single_car->name);?></a></li>
 									<?php 
-									
-									
-									$myallcat=get_categories(array(
-										'orderby'=>'name',
-										'order'=>'dsc',
-									));
-									foreach($myallcat as $singlecat){
-										
-								
-									?>
-									<li><a href="#"><?php echo $singlecat->name;?></a></li>
-									<?php 
-										}
+										 }
 									
 									?>
 								</ul>
