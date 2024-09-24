@@ -11,14 +11,15 @@
 				</div>
 				<div class="row">
 					<?php 
-					$slider = array(
-						'post_type'      => 'mywonlider',  // Replace with your custom post type
-					);
 					
-					$the_slider = new WP_Query($slider);
-					if ( $the_slider->have_posts() ) :
-						while ( $the_slider->have_posts() ) : $the_slider->the_post();
-					$icon=get_post_meta($post->ID,'unique_key',true);
+					$myservices = new WP_Query(
+						array(
+							'post_type'      => 'mywonlider',  // Replace with your custom post type
+						),
+					);
+					if ( $myservices->have_posts() ) :
+						while ( $myservices->have_posts() ) : $myservices->the_post();
+					$icon=get_post_meta(get_the_id(),'unique_key',true);
 					?>
 					<div class="col-lg-4 col-12">
 						<!-- Start Single features -->
@@ -26,7 +27,7 @@
 							<div class="signle-icon">
 								<i class="<?php echo $icon;?>"></i>
 							</div>
-							<h3><?php echo the_title();?></h3>
+							<a href="<?php the_permalink();?>"><h3><?php echo esc_html(the_title());?></h3></a>
 							<p><?php the_excerpt();?></>
 						</div>
 						<!-- End Single features -->
