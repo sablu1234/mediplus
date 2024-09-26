@@ -13,6 +13,10 @@
  */
 
 if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
+
+
+	require_once get_theme_file_path()."/themeoption/codestar-framework.php";
+	require_once get_theme_file_path()."/themeoption/samples/mamurjor-options.php";
 	/**
 	 * Register custom block styles
 	 *
