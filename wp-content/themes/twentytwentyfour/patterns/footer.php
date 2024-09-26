@@ -111,13 +111,23 @@
 	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"0"}}}} -->
 	<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:0">
 		<!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"textColor":"contrast-2","fontSize":"small"} -->
+		 
 		<p class="has-contrast-2-color has-text-color has-link-color has-small-font-size">
+
 		<?php
 			$kidilo=get_option('my_slug');
 				// var_dump($kidilo);	
-				echo $kidilo['opt-text'];
+				echo $kidilo['opt-text']."<br>";
+				$social_list= $kidilo['addmore'];
+				foreach($social_list as $single_social){
+					echo $single_social['social']."<br>";
+					echo $single_social['social_link']."<br>";
+				}
+				
 			?>
 		</p>
+		<img src="<?php echo $kidilo['logo'];?>" alt="">
+		<img src="<?php echo $kidilo['set-logo']['url'];?>" alt="">
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->

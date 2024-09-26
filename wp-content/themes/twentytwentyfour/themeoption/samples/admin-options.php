@@ -1718,15 +1718,9 @@ CSF::createSection( $prefix, array(
       'id'      => 'opt-media-2',
       'type'    => 'media',
       'title'   => 'Media without preview',
-      'preview' => false,
-    ),
-
-    array(
-      'id'    => 'opt-media-3',
-      'type'  => 'media',
-      'title' => 'Media without url',
       'url'   => false,
     ),
+
 
     array(
       'id'      => 'opt-media-4',

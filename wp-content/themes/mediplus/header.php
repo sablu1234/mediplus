@@ -61,8 +61,21 @@
 						<div class="col-lg-6 col-md-7 col-12">
 							<!-- Top Contact -->
 							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+								<li><i class="fa fa-phone">
+									<?php 
+									$myoption_field = get_option( 'myuniqueidthemeoption' );
+									// var_dump($myoption_field);
+									echo $myoption_field['mycell'];
+									?>
+								</i>
+							
+							
+							</li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:<?php echo $myoption_field['myemail']; ?>">
+								<?php 
+									echo $myoption_field['myemail'];
+									?>
+								</a></li>
 							</ul>
 							<!-- End Top Contact -->
 						</div>
@@ -78,7 +91,7 @@
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="index.html"><img src="<?php echo get_template_directory_uri()."/assets/img/logo.png"?>" alt="#"></a>
+									<a href="index.html"><img src="<?php echo $myoption_field['logo'];?>" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->

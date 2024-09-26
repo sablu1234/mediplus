@@ -125,6 +125,8 @@ require get_template_directory()."/inc/custompost/schedule.php";
 require get_template_directory()."/inc/custompost/portfolio.php";
 require get_template_directory()."/inc/custompost/client.php";
 require get_template_directory()."/inc/custompost/hero.php";
+require get_template_directory()."/inc/themeoption/codestar-framework.php";
+require get_template_directory()."/inc/themeoption/samples/mythemeoption.php";
 
 // post
 // page

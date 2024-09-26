@@ -37,6 +37,47 @@ CSF::createSection( $prefix, array(
       'help'  => 'The help text of the field.',
     ),
 
+    
+    array(
+      'id'    => 'logo',
+      'type'  => 'upload',
+      'title' => 'Select Logo',
+    ),
+
+    array(
+      'id'    => 'set-logo',
+      'type'  => 'media',
+      'title' => 'Set Logo',
+    ),
+
+    array(
+      'id'    => 'opt-media-3',
+      'type'  => 'media',
+      'title' => 'Media without url',
+      'url'   => false,
+      'library' => 'image',
+    ),
+    
+    array(
+      'id'     => 'addmore',
+      'type'   => 'repeater',
+      'title'  => 'Repeater',
+      'fields' => array(
+        array(
+          'id'    => 'social',
+          'type'  => 'text',
+          'title' => 'Set social icon'
+        ),
+
+        array(
+          'id'    => 'social_link',
+          'type'  => 'text',
+          'title' => 'Set social Link'
+        ),
+      ),
+    ),
+
+
 
   )
 ) );
