@@ -1,0 +1,1 @@
+<?php echo "this is category-1.php";?>

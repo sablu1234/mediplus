@@ -10,60 +10,33 @@
 					</div>
 				</div>
 				<div class="row">
+				<?php
+				$myservices = new WP_Query(
+						array(
+							'post_type'      => 'service',  // Replace with your custom post type
+						),
+					);
+					if ( $myservices->have_posts() ) :
+						while ( $myservices->have_posts() ) : $myservices->the_post();
+					$icon=get_post_meta(get_the_id(),'unique_key_ser',true);
+					?>
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service">
-							<i class="icofont icofont-prescription"></i>
-							<h4><a href="service-details.html">General Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<i class="<?php echo $icon;?>"></i>
+							<h4><a href="<?php the_permalink();?>"><?php echo esc_html(the_title());?></a></h4>
+							<p><?php echo esc_html(the_excerpt());?></p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-tooth"></i>
-							<h4><a href="service-details.html">Teeth Whitening</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-heart-alt"></i>
-							<h4><a href="service-details.html">Heart Surgery</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-listening"></i>
-							<h4><a href="service-details.html">Ear Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-eye-alt"></i>
-							<h4><a href="service-details.html">Vision Problems</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Blood Transfusion</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
+					
+					<?php 
+					    endwhile;
+						else :
+							_e( 'Sorry, no posts were found.', 'textdomain' );
+						endif;
+					
+					?>
 				</div>
 			</div>
 		</section>

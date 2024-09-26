@@ -1,5 +1,5 @@
 <?php get_header();?>
-
+<?php echo "this is index.php";?>
 		
 		<!-- Slider Area -->
 <?php echo get_template_part('template-parts/slider');?>
@@ -24,7 +24,7 @@
 		<!-- Start Call to action -->
         <?php echo get_template_part('template-parts/calltoaction');?>
 		<!--/ End Call to action -->
-		
+		+
 		<!-- Start portfolio -->
         <?php echo get_template_part('template-parts/portfolio');?>
 		<!--/ End portfolio -->

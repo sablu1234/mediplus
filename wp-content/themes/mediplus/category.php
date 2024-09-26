@@ -1,4 +1,1 @@
-<?php 
-echo "This is category page";
-
-?>
+<?php echo "this is category.php";?>

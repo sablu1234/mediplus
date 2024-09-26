@@ -1,5 +1,5 @@
 <?php get_header();?>
-		
+		<?php echo "this is single-post.php";?>
 		<!-- Breadcrumbs -->
 		<div class="breadcrumbs overlay">
 			<div class="container">

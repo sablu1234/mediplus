@@ -1,3 +1,4 @@
+<?php echo "this is singular.php";?>
 <?php
     
     if(have_posts()):

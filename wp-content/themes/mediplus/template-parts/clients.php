@@ -3,35 +3,30 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">
 						<div class="owl-carousel clients-slider">
+
+						<?php
+				$myservices = new WP_Query(
+						array(
+							'post_type'      => 'client',  // Replace with your custom post type
+						),
+					);
+					if ( $myservices->have_posts() ) :
+						while ( $myservices->have_posts() ) : $myservices->the_post();
+					?>
 							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client1.png"?>" alt="#">
+								<a href="<?php the_permalink();?>"><?php the_post_thumbnail();?></a>
 							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client2.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client3.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client4.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client5.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client1.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client2.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client3.png"?>" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/client4.png"?>" alt="#">
-							</div>
+
+							<?php 
+					    endwhile;
+						else :
+							_e( 'Sorry, no posts were found.', 'textdomain' );
+						endif;
+					
+					?>
+							
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> 

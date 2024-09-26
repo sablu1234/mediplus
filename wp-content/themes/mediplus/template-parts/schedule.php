@@ -2,6 +2,16 @@
 			<div class="container">
 				<div class="schedule-inner">
 					<div class="row">
+					<?php
+				$myservices = new WP_Query(
+						array(
+							'post_type'      => 'schedule',  // Replace with your custom post type
+						),
+					);
+					if ( $myservices->have_posts() ) :
+						while ( $myservices->have_posts() ) : $myservices->the_post();
+					?>
+
 						<div class="col-lg-4 col-md-6 col-12 ">
 							<!-- single-schedule -->
 							<div class="single-schedule first">
@@ -10,50 +20,23 @@
 										<i class="fa fa-ambulance"></i>
 									</div>
 									<div class="single-content">
-										<span>Lorem Amet</span>
-										<h4>Emergency Cases</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+										<span><?php echo esc_html(the_title());?></span>
+										<h4><?php echo esc_html(the_excerpt());?></h4>
+										<p><?php echo esc_html(the_content());?></p>
+										<a href="<?php the_permalink();?>">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6 col-12">
-							<!-- single-schedule -->
-							<div class="single-schedule middle">
-								<div class="inner">
-									<div class="icon">
-										<i class="icofont-prescription"></i>
-									</div>
-									<div class="single-content">
-										<span>Fusce Porttitor</span>
-										<h4>Doctors Timetable</h4>
-										<p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis sodales.</p>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-12 col-12">
-							<!-- single-schedule -->
-							<div class="single-schedule last">
-								<div class="inner">
-									<div class="icon">
-										<i class="icofont-ui-clock"></i>
-									</div>
-									<div class="single-content">
-										<span>Donec luctus</span>
-										<h4>Opening Hours</h4>
-										<ul class="time-sidual">
-											<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-											<li class="day">Saturday <span>9.00-18.30</span></li>
-											<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-										</ul>
-										<a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
+
+						<?php 
+					    endwhile;
+						else :
+							_e( 'Sorry, no posts were found.', 'textdomain' );
+						endif;
+					
+					?>
+						
 					</div>
 				</div>
 			</div>

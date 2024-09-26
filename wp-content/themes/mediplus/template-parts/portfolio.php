@@ -14,38 +14,31 @@
 				<div class="row">
 					<div class="col-lg-12 col-12">
 						<div class="owl-carousel portfolio-slider">
+						<?php
+				$myservices = new WP_Query(
+						array(
+							'post_type'      => 'portfolio',  // Replace with your custom post type
+						),
+					);
+					if ( $myservices->have_posts() ) :
+						while ( $myservices->have_posts() ) : $myservices->the_post();
+					?>
+
+						
 							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf1.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
+								<!-- <img src="<?php //echo get_template_directory_uri()."/assets/img/pf1.jpg"?>" alt="#"> -->
+								<?php the_post_thumbnail();?>
+								<a href="<?php the_permalink();?>" class="btn"><?php echo esc_html(the_title());?></a>
 							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf2.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf3.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf4.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf1.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf2.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf3.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf">
-								<img src="<?php echo get_template_directory_uri()."/assets/img/pf4.jpg"?>" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
+
+							<?php 
+					    endwhile;
+						else :
+							_e( 'Sorry, no posts were found.', 'textdomain' );
+						endif;
+					
+					?>
+						
 						</div>
 					</div>
 				</div>
