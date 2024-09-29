@@ -50,12 +50,20 @@
 					<div class="row">
 						<div class="col-lg-6 col-md-5 col-12">
 							<!-- Contact -->
-							<ul class="top-link">
+							 <?php
+							 wp_nav_menu(
+								array(
+									'theme_location'=>'top-menu',
+									'menu_class'=>'top-link',
+								),
+							 );
+							 ?>
+							<!-- <ul class="top-link">
 								<li><a href="#">About</a></li>
 								<li><a href="#">Doctors</a></li>
 								<li><a href="#">Contact</a></li>
 								<li><a href="#">FAQ</a></li>
-							</ul>
+							</ul> -->
 							<!-- End Contact -->
 						</div>
 						<div class="col-lg-6 col-md-7 col-12">
@@ -102,7 +110,17 @@
 								<!-- Main Menu -->
 								<div class="main-menu">
 									<nav class="navigation">
-										<ul class="nav menu">
+
+							<?php
+							 wp_nav_menu(
+								array(
+									'theme_location'=>'primary-menu',
+									'menu_class'=>'nav menu',
+									'add_li_class'=>'mamurjor'
+								),
+							 );
+							 ?>
+										<!-- <ul class="nav menu">
 											<li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
 													<li><a href="index.html">Home Page 1</a></li>
@@ -121,7 +139,7 @@
 												</ul>
 											</li>
 											<li><a href="contact.html">Contact Us</a></li>
-										</ul>
+										</ul> -->
 									</nav>
 								</div>
 								<!--/ End Main Menu -->

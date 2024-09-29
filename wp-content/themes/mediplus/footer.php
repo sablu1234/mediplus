@@ -25,22 +25,38 @@
 								<h2>Quick Links</h2>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
+							<?php
+							 wp_nav_menu(
+								array(
+									'theme_location'=>'footer-one',
+									'link_before'=>'<i class="fa fa-caret-right" aria-hidden="true"></i>',
+								),
+							 );
+							 ?>
+										<!-- <ul>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>	
-										</ul>
+										</ul> -->
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
+							<?php
+							 wp_nav_menu(
+								array(
+									'theme_location'=>'footer-two',
+									'link_before'=>'<i class="fa fa-caret-right" aria-hidden="true"></i>',
+								),
+							 );
+							 ?>
+										<!-- <ul>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
 											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
-										</ul>
+										</ul> -->
 									</div>
 								</div>
 							</div>
@@ -137,8 +153,18 @@
 		<script src="<?php echo get_template_directory_uri()."/assets/js/bootstrap.min.js"?>"></script>
 		<!-- Main JS -->
 		<script src="<?php echo get_template_directory_uri()."/assets/js/main.js"?>"></script>
-    <?php wp_footer();?>
-    </body>
+
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		$("ul.sub-menu").addClass('dropdown');
+	});
+	</script>
+  <?php wp_footer(); ?>
+</body>
 </html>
+
 
 

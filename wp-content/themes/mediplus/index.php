@@ -1,5 +1,6 @@
 <?php get_header();?>
 <?php echo "this is index.php";?>
+<?php echo do_shortcode('[passcode]');?>
 		
 		<!-- Slider Area -->
 <?php echo get_template_part('template-parts/slider');?>

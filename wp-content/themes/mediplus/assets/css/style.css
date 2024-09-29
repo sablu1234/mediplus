@@ -4170,3 +4170,7 @@ body{
 /*=========================
 	End Footer CSS
 ===========================*/
+
+input.wpcf7-form-control.wpcf7-submit.has-spinner.btn {
+    background: #1975d1;
+}

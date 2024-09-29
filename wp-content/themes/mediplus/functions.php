@@ -13,6 +13,7 @@ if(!function_exists('wplearntheme')){
 
         add_theme_support('post-formats',array('video','aside','gallery','audio','image'));
 
+        //Theme css and js file calling
         add_action( 'wp_enqueue_scripts','mywpscript');
 
         if(!function_exists('mywpscript')){
@@ -125,14 +126,16 @@ require get_template_directory()."/inc/custompost/schedule.php";
 require get_template_directory()."/inc/custompost/portfolio.php";
 require get_template_directory()."/inc/custompost/client.php";
 require get_template_directory()."/inc/custompost/hero.php";
+require get_template_directory()."/inc/custompost/mprice.php";
+
 require get_template_directory()."/inc/themeoption/codestar-framework.php";
 require get_template_directory()."/inc/themeoption/samples/mythemeoption.php";
-
-// post
-// page
-// attachment
-// rivision
-// nav menu
-
-
-
+require get_template_directory()."/inc/myshortcode.php";
+require get_template_directory()."/inc/mymenu.php";
+require get_template_directory()."/inc/tgm/class-tgm-plugin-activation.php";
+require get_template_directory()."/inc/tgm/myactiveplugin.php";
+//cmb2
+require get_template_directory()."/inc/cmb/init.php";
+require get_template_directory()."/inc/cmb/mymeta.php";
+//widget
+require get_template_directory()."/inc/wonwidget.php";
